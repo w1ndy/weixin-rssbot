@@ -1,3 +1,5 @@
+'use strict';
+
 const typeInfo = {
     text: {
         setter: '_setTextField',
@@ -28,10 +30,10 @@ exports.Message = class {
 
     _setTextField() {
         this.content = this._xml.Content[0];
-        this.id = xml.MsgId[0];
+        this.id = this._xml.MsgId[0];
     }
     _routeTextField(handler) {
-        handler(this, this.content)
+        handler(this, this.content);
     }
     _setEventField() {
         this.event = this._xml.Event[0];
