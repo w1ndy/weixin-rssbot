@@ -13,7 +13,7 @@ Object.keys(colorMap).forEach(fn => {
     let pf = console[fn];
     console[fn] = function () {
         pf.apply(console,
-            [colorMap[fn](new Date().toISOString())]
+            [colorMap[fn](new Date().toLocaleString())]
             .concat([].slice.call(arguments)));
     };
 });
