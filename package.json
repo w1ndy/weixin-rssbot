@@ -1,0 +1,27 @@
+{
+  "name": "weixin-rssbot",
+  "version": "1.0.0",
+  "description": "Deliver custom contents from RSS feed to Weixin.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/w1ndy/weixin-rssbot.git"
+  },
+  "keywords": [
+    "weixin",
+    "rss"
+  ],
+  "author": "w1ndy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/w1ndy/weixin-rssbot/issues"
+  },
+  "homepage": "https://github.com/w1ndy/weixin-rssbot#readme",
+  "dependencies": {
+    "cli-color": "^1.1.0",
+    "express": "^4.14.0"
+  }
+}

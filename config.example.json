@@ -1,0 +1,4 @@
+// rename this file to config.json and modify accordingly.
+{
+    "token": "your_weixin_public_account_token"
+}
