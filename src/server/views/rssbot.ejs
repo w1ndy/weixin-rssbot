@@ -1,14 +1,18 @@
 <!doctype html>
 <head>
   <title>RSSbot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <% for (const url of cssFiles) { %>
     <link rel="stylesheet" type="text/css" href="<%= url %>">
   <% } %>
 </head>
-<body>
-  <p>rssbot test page.</p>
-  <p>You have logged in as <%= openid %></p>
-
+<body ng-app="rssbot">
+  <section class="rssbot-app">
+    <div class="sidebar" ng-controller="SidebarController"></div>
+    <div class="uiview-container">
+      <ui-view></ui-view>
+    </div>
+  </section>
   <% for (const url of jsFiles) { %>
     <script type="text/javascript" src="<%= url %>"></script>
   <% } %>

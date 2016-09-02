@@ -1,6 +1,8 @@
 'use strict';
 
 const fs = require('fs');
+const path = require('path');
+const glob = require('glob');
 
 module.exports = JSON.parse(fs.readFileSync('config.json', 'utf8'));
 
@@ -22,20 +24,23 @@ module.exports.saveAccessToken = function (token) {
 };
 
 module.exports.clientDependencies = {
-    css: [],
+    css: [
+        '/src/client/stylesheets/*.css'
+    ],
     js: [
         'https://res.wx.qq.com/open/js/jweixin-1.0.0.js',
         '/public/lib/angular/angular.min.js',
-        '/src/client/main.js'
+        '/public/lib/angular-ui-router/release/angular-ui-router.min.js',
+        '/src/client/config.js'
     ]
 };
 
 (function () {
     const expandGlobbedDependency = function (depArray, globbedDependency) {
-        glob(globbedDependency, (err, fnames) => {
-            if (err) {
-                console.error('unable to resolve dependency:',
-                    globbedDependency);
+        const pattern = path.posix.join('.', globbedDependency);
+        glob(pattern, (err, fnames) => {
+            if (err || !fnames.length) {
+                console.error('unable to resolve dependency:', pattern);
                 return;
             }
             const pos = depArray.indexOf(globbedDependency);
