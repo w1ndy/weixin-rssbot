@@ -20,3 +20,36 @@ module.exports.saveAccessToken = function (token) {
         });
     })
 };
+
+module.exports.clientDependencies = {
+    css: [],
+    js: [
+        'https://res.wx.qq.com/open/js/jweixin-1.0.0.js',
+        '/public/lib/angular/angular.min.js',
+        '/src/client/main.js'
+    ]
+};
+
+(function () {
+    const expandGlobbedDependency = function (depArray, globbedDependency) {
+        glob(globbedDependency, (err, fnames) => {
+            if (err) {
+                console.error('unable to resolve dependency:',
+                    globbedDependency);
+                return;
+            }
+            const pos = depArray.indexOf(globbedDependency);
+            depArray.splice(pos, 1, ... fnames);
+        });
+    };
+
+    const checkGlobbedDependency = function (depArray) {
+        for (const fname of depArray) {
+            if (fname.indexOf('*') >= 0)
+                expandGlobbedDependency(depArray, fname);
+        }
+    };
+
+    checkGlobbedDependency(module.exports.clientDependencies.css);
+    checkGlobbedDependency(module.exports.clientDependencies.js);
+}());

@@ -10,8 +10,9 @@ const home = require('./controllers/home');
 
 module.exports = function (express) {
     express.get('/', home.handler);
+    express.post('/', event.handler);
+
     express.get('/authorize', authorize.handler);
     express.get('/login', login.handler);
     express.get('/app', app.handler);
-    express.post('/', event.handler);
 };

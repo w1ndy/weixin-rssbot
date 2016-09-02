@@ -1,10 +1,15 @@
 <!doctype html>
-<html>
-  <head>
-    <title>RSSbot</title>
-  </head>
-  <body>
-    rssbot test page. you are visiting: <%= url %>
-    <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-  </body>
-</html>
+<head>
+  <title>RSSbot</title>
+  <% for (const url of cssFiles) { %>
+    <link rel="stylesheet" type="text/css" href="<%= url %>">
+  <% } %>
+</head>
+<body>
+  <p>rssbot test page.</p>
+  <p>You have logged in as <%= openid %></p>
+
+  <% for (const url of jsFiles) { %>
+    <script type="text/javascript" src="<%= url %>"></script>
+  <% } %>
+</body>

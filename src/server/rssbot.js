@@ -32,11 +32,16 @@ app.use(session({
     cookie: { secure: true }
 }));
 
-app.use(bodyParser.text({ type: 'text/xml' }));
+app.use(bodyParser.text({
+    type: 'text/xml'
+}));
 
 app.use((req, res, next) => {
     console.log(req.method, req.ip, '=>', req.url);
     next();
 });
+
+app.use('/src/client', express.static('src/client'));
+app.use('/public', express.static('public'));
 
 route(app);

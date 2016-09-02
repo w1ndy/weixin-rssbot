@@ -1,5 +1,6 @@
 'use strict';
 
+const wx = require('../wxapi/weixin');
 const conf = require('../config');
 
 exports.handler = function (req, res) {
