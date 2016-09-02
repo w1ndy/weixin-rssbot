@@ -3,7 +3,8 @@
 const https = require('https');
 const fs = require('fs');
 const color = require('cli-color');
-const rssbot = require('./src/rssbot');
+
+const rssbot = require('./src/server/rssbot');
 
 const colorMap = {
     log: color.green,

@@ -2,10 +2,12 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
+const session = require('express-session');
 
-const db = require('./database');
-const menu = require('./menu');
+const db = require('./models/database');
+const menu = require('./wxapi/menu');
 const route = require('./route');
+const conf = require('./config');
 
 let app = module.exports = express();
 
@@ -21,6 +23,14 @@ menu.createMenu()
 .catch(e => console.error('failed to create menu:', e));
 
 app.set('view engine', 'ejs');
+app.set('views', 'src/server/views');
+
+app.use(session({
+    secret: conf.app_secret,
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true }
+}));
 
 app.use(bodyParser.text({ type: 'text/xml' }));
 
