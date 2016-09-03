@@ -23,8 +23,14 @@ module.exports.saveAccessToken = function (token) {
     })
 };
 
+module.exports.testUser = {
+    openid: 'test',
+    nickname: 'test'
+};
+
 module.exports.clientDependencies = {
     css: [
+        '/public/lib/font-awesome/css/font-awesome.min.css',
         '/src/client/stylesheets/*.css'
     ],
     js: [

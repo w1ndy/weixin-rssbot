@@ -8,9 +8,19 @@
 </head>
 <body ng-app="rssbot">
   <section class="rssbot-app">
-    <div class="sidebar" ng-controller="SidebarController"></div>
-    <div class="uiview-container">
-      <ui-view></ui-view>
+    <nav class="navbar">
+      <i class="fa fa-bars icon"></i>
+      <div class="shortcuts"></div>
+      <div class="userinfo">
+        <div class="headimg"></div>
+        <span>User Name</span>
+      </div>
+    </nav>
+    <div class="content">
+      <div class="sidebar"></div>
+      <div class="uiview-container">
+        <ui-view></ui-view>
+      </div>
     </div>
   </section>
   <% for (const url of jsFiles) { %>

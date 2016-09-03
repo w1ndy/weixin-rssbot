@@ -7,14 +7,47 @@ body {
     height: 100vh;
     background-color: #ECF0F1;
     display: flex;
+    flex-direction: column;
+}
+
+.navbar {
+    flex: 0 0 50px;
+    background-color: #34495E;
+    border-bottom: 1px solid #2C3E50;
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar > .icon {
+    flex: 0 0;
+    color: white;
+    font-size: 24px;
+    line-height: 50px;
+    padding: 0 15px;
+    margin: 0 10px 0 0;
+    border-right: 1px solid #2C3E50;
+}
+
+.navbar > .shortcuts {
+    flex: 1 1;
+}
+
+.navbar > .userinfo {
+    flex: 0 0 120px;
+    border-left: 1px solid #2C3E50;
+}
+
+.content {
+    flex: 1 1;
+    display: flex;
     flex-direction: row;
 }
 
 .sidebar {
-    flex: 0 0 75px;
+    flex: 0 0 0px;
     background-color: #34495E;
 }
 
 .uiview-container {
-    flex: 0 0 calc(100vw - 75px);
+    flex: 0 0 100vw;
 }
